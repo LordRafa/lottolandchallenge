@@ -7,7 +7,7 @@ import java.util.Random;
 
 // Possible RPS game choices
 public enum RPSHand {
-	SCISSORS(0), PAPPER(1), ROCK(2);
+	SCISSORS(0), PAPER(1), ROCK(2);
 
 	RPSHand(int weight) {
 		this.weight = weight;

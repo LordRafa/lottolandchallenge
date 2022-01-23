@@ -7,7 +7,7 @@ import org.junit.Test;
 import com.rafael.lottolandchallenge.beans.game.rps.RPSPlayerFactory;
 import com.rafael.lottolandchallenge.beans.game.rps.RPSPlayerFactoryExeption;
 import com.rafael.lottolandchallenge.beans.game.rps.RPSPlayerFactoryImp;
-import com.rafael.lottolandchallenge.beans.game.rps.RPSPlayerPapperImp;
+import com.rafael.lottolandchallenge.beans.game.rps.RPSPlayerPaperImp;
 import com.rafael.lottolandchallenge.beans.game.rps.RPSPlayerRndImp;
 import com.rafael.lottolandchallenge.beans.game.rps.RPSPlayerRockImp;
 import com.rafael.lottolandchallenge.beans.game.rps.RPSPlayerScissorsImp;
@@ -27,9 +27,9 @@ public class RPSPlayerFactoryTest {
 	}
 
 	@Test
-	public void testCreatePapper() throws RPSPlayerFactoryExeption {
+	public void testCreatePaper() throws RPSPlayerFactoryExeption {
 		RPSPlayerFactory rpsPlayerFactory = new RPSPlayerFactoryImp();
-		assertTrue(rpsPlayerFactory.getPlayer("ThePapper") instanceof RPSPlayerPapperImp);
+		assertTrue(rpsPlayerFactory.getPlayer("ThePaper") instanceof RPSPlayerPaperImp);
 	}
 
 	@Test

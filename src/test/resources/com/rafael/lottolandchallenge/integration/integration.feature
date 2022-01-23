@@ -16,12 +16,12 @@ Feature: Players service integration test
     Examples: 
       | Player1     | Player2     | Winner | HandP1   | HandP2   | WinnerName  |
       | TheRock     | TheScissors | 1      | ROCK     | SCISSORS | TheRock     |
-      | TheRock     | ThePapper   | 2      | ROCK     | PAPPER   | ThePapper   |
+      | TheRock     | ThePaper   | 2      | ROCK     | PAPER   | ThePaper   |
       | TheRock     | TheRock     | 0      | ROCK     | ROCK     | SKIP        |
-      | ThePapper   | TheRock     | 1      | PAPPER   | ROCK     | ThePapper   |
-      | ThePapper   | TheScissors | 2      | PAPPER   | SCISSORS | TheScissors |
-      | ThePapper   | ThePapper   | 0      | PAPPER   | PAPPER   | SKIP        |
-      | TheScissors | ThePapper   | 1      | SCISSORS | PAPPER   | TheScissors |
+      | ThePaper   | TheRock     | 1      | PAPER   | ROCK     | ThePaper   |
+      | ThePaper   | TheScissors | 2      | PAPER   | SCISSORS | TheScissors |
+      | ThePaper   | ThePaper   | 0      | PAPER   | PAPER   | SKIP        |
+      | TheScissors | ThePaper   | 1      | SCISSORS | PAPER   | TheScissors |
       | TheScissors | TheRock     | 2      | SCISSORS | ROCK     | TheRock     |
       | TheScissors | TheScissors | 0      | SCISSORS | SCISSORS | SKIP        |
       | Rnd         | Rnd         | SKIP   | SKIP     | SKIP     | SKIP        |

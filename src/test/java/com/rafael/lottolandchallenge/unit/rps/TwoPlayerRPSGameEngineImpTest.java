@@ -33,13 +33,13 @@ public class TwoPlayerRPSGameEngineImpTest {
 	}
 
 	@Test
-	public void testP1RockLoosesP2Papper() throws RPSPlayerFactoryExeption, WrongPlayerNumberExeption {
-		String[] players = { "TheRock", "ThePapper" };
+	public void testP1RockLoosesP2Paper() throws RPSPlayerFactoryExeption, WrongPlayerNumberExeption {
+		String[] players = { "TheRock", "ThePaper" };
 		Round round = twoPlayerRPSGameEngineImp.playRound(new PlayersListMsg(players));
 		List<String> choices = round.getPlayersChoices();
 		assertEquals(2, choices.size());
 		assertEquals("ROCK", choices.get(0));
-		assertEquals("PAPPER", choices.get(1));
+		assertEquals("PAPER", choices.get(1));
 		assertEquals(2, round.getWinner());
 	}
 
@@ -55,46 +55,46 @@ public class TwoPlayerRPSGameEngineImpTest {
 	}
 
 	@Test
-	public void testP1PapperWinsP2Rock() throws RPSPlayerFactoryExeption, WrongPlayerNumberExeption {
-		String[] players = { "ThePapper", "TheRock" };
+	public void testP1PaperWinsP2Rock() throws RPSPlayerFactoryExeption, WrongPlayerNumberExeption {
+		String[] players = { "ThePaper", "TheRock" };
 		Round round = twoPlayerRPSGameEngineImp.playRound(new PlayersListMsg(players));
 		List<String> choices = round.getPlayersChoices();
 		assertEquals(2, choices.size());
-		assertEquals("PAPPER", choices.get(0));
+		assertEquals("PAPER", choices.get(0));
 		assertEquals("ROCK", choices.get(1));
 		assertEquals(1, round.getWinner());
 	}
 
 	@Test
-	public void testP1PapperLoosesP2Scissors() throws RPSPlayerFactoryExeption, WrongPlayerNumberExeption {
-		String[] players = { "ThePapper", "TheScissors" };
+	public void testP1PaperLoosesP2Scissors() throws RPSPlayerFactoryExeption, WrongPlayerNumberExeption {
+		String[] players = { "ThePaper", "TheScissors" };
 		Round round = twoPlayerRPSGameEngineImp.playRound(new PlayersListMsg(players));
 		List<String> choices = round.getPlayersChoices();
 		assertEquals(2, choices.size());
-		assertEquals("PAPPER", choices.get(0));
+		assertEquals("PAPER", choices.get(0));
 		assertEquals("SCISSORS", choices.get(1));
 		assertEquals(2, round.getWinner());
 	}
 
 	@Test
-	public void testP1PapperDrawsP2Papper() throws RPSPlayerFactoryExeption, WrongPlayerNumberExeption {
-		String[] players = { "ThePapper", "ThePapper" };
+	public void testP1PaperDrawsP2Paper() throws RPSPlayerFactoryExeption, WrongPlayerNumberExeption {
+		String[] players = { "ThePaper", "ThePaper" };
 		Round round = twoPlayerRPSGameEngineImp.playRound(new PlayersListMsg(players));
 		List<String> choices = round.getPlayersChoices();
 		assertEquals(2, choices.size());
-		assertEquals("PAPPER", choices.get(0));
-		assertEquals("PAPPER", choices.get(1));
+		assertEquals("PAPER", choices.get(0));
+		assertEquals("PAPER", choices.get(1));
 		assertEquals(0, round.getWinner());
 	}
 
 	@Test
-	public void testP1ScissorsWinsP2Papper() throws RPSPlayerFactoryExeption, WrongPlayerNumberExeption {
-		String[] players = { "TheScissors", "ThePapper" };
+	public void testP1ScissorsWinsP2Paper() throws RPSPlayerFactoryExeption, WrongPlayerNumberExeption {
+		String[] players = { "TheScissors", "ThePaper" };
 		Round round = twoPlayerRPSGameEngineImp.playRound(new PlayersListMsg(players));
 		List<String> choices = round.getPlayersChoices();
 		assertEquals(2, choices.size());
 		assertEquals("SCISSORS", choices.get(0));
-		assertEquals("PAPPER", choices.get(1));
+		assertEquals("PAPER", choices.get(1));
 		assertEquals(1, round.getWinner());
 	}
 

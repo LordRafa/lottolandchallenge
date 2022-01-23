@@ -10,8 +10,8 @@ public class RPSPlayerFactoryImp implements RPSPlayerFactory {
 
 		case "TheRock":
 			return new RPSPlayerRockImp();
-		case "ThePapper":
-			return new RPSPlayerPapperImp();
+		case "ThePaper":
+			return new RPSPlayerPaperImp();
 		case "TheScissors":
 			return new RPSPlayerScissorsImp();
 		case "Rnd":

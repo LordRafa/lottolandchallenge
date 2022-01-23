@@ -1,6 +1,6 @@
 package com.rafael.lottolandchallenge.beans.game.rps;
 
-//This player will choose rock each time that he plays
+// This player will choose rock each time that he plays
 public class RPSPlayerRockImp implements RPSPlayer {
 
 	private final String playerName = "TheRock";
