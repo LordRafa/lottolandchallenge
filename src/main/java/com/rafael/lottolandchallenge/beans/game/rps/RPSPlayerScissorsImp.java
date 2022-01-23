@@ -1,0 +1,18 @@
+package com.rafael.lottolandchallenge.beans.game.rps;
+
+//This player will choice rock each time that he plays
+public class RPSPlayerScissorsImp implements RPSPlayer {
+
+	private final String playerName = "TheScissors";
+
+	public String getPlayerName() {
+		return playerName;
+	}
+
+	public RPSHand getHand() {
+
+		return RPSHand.SCISSORS;
+
+	}
+
+}
