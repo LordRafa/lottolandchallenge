@@ -48,7 +48,7 @@ public class StepDefinitions {
 
 	private PlayersListMsg playerMsg;
 
-	private JerseyWrapper jerseyWrapper = new JerseyWrapper();
+	private JerseyTestWrapper jerseyWrapper = new JerseyTestWrapper();
 
 	private static final Map<String, String> targetsMapping;
 	static {
@@ -64,7 +64,7 @@ public class StepDefinitions {
 
 	private Cookie jsessionid;
 
-	private class JerseyWrapper extends JerseyTest {
+	private class JerseyTestWrapper extends JerseyTest {
 
 		@Override
 		protected Application configure() {

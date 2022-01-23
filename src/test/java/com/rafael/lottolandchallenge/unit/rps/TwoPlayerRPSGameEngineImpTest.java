@@ -121,13 +121,13 @@ public class TwoPlayerRPSGameEngineImpTest {
 	}
 
 	@Test(expected = WrongPlayerNumberExeption.class)
-	public void testWrongPlayerNumber() throws RPSPlayerFactoryExeption, WrongPlayerNumberExeption {
+	public void testPlayWithAWrongNumberOfPlayers() throws RPSPlayerFactoryExeption, WrongPlayerNumberExeption {
 		String[] players = { "TheScissors" };
 		twoPlayerRPSGameEngineImp.playRound(new PlayersListMsg(players));
 	}
 
 	@Test(expected = RPSPlayerFactoryExeption.class)
-	public void testWrongPlayers() throws RPSPlayerFactoryExeption, WrongPlayerNumberExeption {
+	public void testPlayWithWrongPlayers() throws RPSPlayerFactoryExeption, WrongPlayerNumberExeption {
 		String[] players = { "FOO", "BAR" };
 		twoPlayerRPSGameEngineImp.playRound(new PlayersListMsg(players));
 	}

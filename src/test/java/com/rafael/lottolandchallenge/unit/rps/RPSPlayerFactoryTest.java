@@ -25,13 +25,13 @@ public class RPSPlayerFactoryTest {
 		RPSPlayerFactory rpsPlayerFactory = new RPSPlayerFactoryImp();
 		assertTrue(rpsPlayerFactory.getPlayer("TheRock") instanceof RPSPlayerRockImp);
 	}
-	
+
 	@Test
 	public void testCreatePapper() throws RPSPlayerFactoryExeption {
 		RPSPlayerFactory rpsPlayerFactory = new RPSPlayerFactoryImp();
 		assertTrue(rpsPlayerFactory.getPlayer("ThePapper") instanceof RPSPlayerPapperImp);
 	}
-	
+
 	@Test
 	public void testCreateScissors() throws RPSPlayerFactoryExeption {
 		RPSPlayerFactory rpsPlayerFactory = new RPSPlayerFactoryImp();
@@ -39,7 +39,7 @@ public class RPSPlayerFactoryTest {
 	}
 
 	@Test(expected = RPSPlayerFactoryExeption.class)
-	public void testCreateUnKnow() throws RPSPlayerFactoryExeption {
+	public void testCreateUnknowPlayer() throws RPSPlayerFactoryExeption {
 		RPSPlayerFactory rpsPlayerFactory = new RPSPlayerFactoryImp();
 		rpsPlayerFactory.getPlayer("XXXX");
 	}

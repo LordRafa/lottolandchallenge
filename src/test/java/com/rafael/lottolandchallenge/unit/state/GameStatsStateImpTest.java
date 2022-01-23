@@ -13,7 +13,7 @@ public class GameStatsStateImpTest {
 	GameStatsStateImp gameStatsStateImp = new GameStatsStateImp();
 
 	@Test
-	public void incPlayerWinsTest() {
+	public void incPlayerWinsStatsTest() {
 
 		gameStatsStateImp.incPlayerWins("FOO");
 		Map<String, Integer> playerWins = gameStatsStateImp.getPlayerWins();
@@ -25,7 +25,7 @@ public class GameStatsStateImpTest {
 	}
 
 	@Test
-	public void incTwoDifferentPlayerWinsTest() {
+	public void incThreeDifferentPlayerWinsStatsTest() {
 
 		gameStatsStateImp.incPlayerWins("FOO");
 		gameStatsStateImp.incPlayerWins("BAR");
@@ -41,7 +41,7 @@ public class GameStatsStateImpTest {
 	}
 
 	@Test
-	public void incDrawsTest() {
+	public void incDrawsStatsTest() {
 
 		gameStatsStateImp.incDraws();
 
@@ -53,7 +53,7 @@ public class GameStatsStateImpTest {
 	}
 
 	@Test
-	public void incTwoDifferentPlayerWinsAndDrawMixedTest() {
+	public void incThreeDifferentPlayerWinsStatsAndIncDrawStatsTest() {
 
 		gameStatsStateImp.incPlayerWins("FOO");
 		gameStatsStateImp.incPlayerWins("BAR");
