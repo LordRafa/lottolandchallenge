@@ -1,8 +1,8 @@
 package com.rafael.lottolandchallenge.beans.game.rps;
 
+// Factory used to create players
 public class RPSPlayerFactoryImp implements RPSPlayerFactory {
 
-	// Returns a player instance of a given type.
 	@Override
 	public RPSPlayer getPlayer(String type) throws RPSPlayerFactoryExeption {
 
@@ -16,7 +16,6 @@ public class RPSPlayerFactoryImp implements RPSPlayerFactory {
 			return new RPSPlayerScissorsImp();
 		case "Rnd":
 			return new RPSPlayerRndImp();
-
 		default:
 			throw new RPSPlayerFactoryExeption(type);
 		}

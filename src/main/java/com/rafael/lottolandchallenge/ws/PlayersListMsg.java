@@ -2,6 +2,7 @@ package com.rafael.lottolandchallenge.ws;
 
 import jakarta.xml.bind.annotation.XmlRootElement;
 
+// Helper class to deserialize playRound post parameters 
 @XmlRootElement
 public class PlayersListMsg {
 

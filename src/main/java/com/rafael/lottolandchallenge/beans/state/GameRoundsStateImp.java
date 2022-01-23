@@ -13,7 +13,7 @@ public class GameRoundsStateImp implements GameRoundsState {
 	private static final long serialVersionUID = -4085653325422583609L;
 
 	private List<Round> rounds = new ArrayList<Round>();
-	
+
 	@Override
 	public void addRound(Round round) {
 		rounds.add(round);
@@ -23,12 +23,12 @@ public class GameRoundsStateImp implements GameRoundsState {
 	public List<Round> getRounds() {
 		return rounds;
 	}
-	
+
 	@Override
 	public int getRoundsNumber() {
 		return rounds.size();
 	}
-	
+
 	@Override
 	public void resetRounds() {
 		rounds.clear();

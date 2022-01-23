@@ -7,6 +7,7 @@ import org.glassfish.grizzly.http.server.Session;
 
 import jakarta.ws.rs.core.Context;
 
+// Supplier class allow inject httpsessions from Grizzly web server
 public class SessionFactory implements Supplier<Session> {
 
 	private final Request request;

@@ -59,11 +59,19 @@ public class Main {
 				bindFactory(SessionFactory.class).to(Session.class).proxy(true).proxyForSameScope(false)
 						.in(RequestScoped.class);
 
+				// Notice that this class is defined with a singleton life.cycle
+				// only one instance of this class will be shared
 				bind(RPSPlayerFactoryImp.class).to(RPSPlayerFactory.class).in(Singleton.class);
 
+				// Notice that this class is defined with a singleton life.cycle
+				// only one instance of this class will be shared
 				bind(TwoPlayerRPSGameEngineImp.class).to(GameEngine.class).in(Singleton.class);
 
+				// The life-cycle of this component will be modified to a per-session cycle. See
+				// PerSessionComponentProvider.java
 				bind(GameRoundsStateImp.class).to(GameRoundsState.class).in(RequestScoped.class);
+				// Notice that this class is defined with a singleton life.cycle
+				// only one instance of this class will be shared
 				bind(GameStatsStateImp.class).to(GameStatsState.class).in(Singleton.class);
 
 			}

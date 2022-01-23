@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-// Possible game choices
+// Possible RPS game choices
 public enum RPSHand {
 	SCISSORS(0), PAPPER(1), ROCK(2);
 

@@ -15,6 +15,14 @@ import org.glassfish.jersey.server.spi.ComponentProvider;
 
 import jakarta.inject.Inject;
 
+// This class is described on Jersey documentation
+// It allows to change jersey's component 
+// default per-lockup life-cycle to a per-session one.
+//
+// This allows to keep a independent persistent
+// storage per each session.
+//
+// The only component affected by this class is GameRPSResources
 @jakarta.ws.rs.ext.Provider
 public class PerSessionComponentProvider implements ComponentProvider {
 

@@ -17,18 +17,21 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
+// Jersey rest-api for a two player rock paper scissors 
 @Path("rps2p")
 public class GameRPSResources {
 
 	@Inject
 	GameRoundsState gameRounds;
 
+	// This is singleton class (see Main.java file)
 	@Inject
 	GameStatsState gameStats;
 
 	@Inject
 	GameEngine gameEngine;
 
+	// Call to create/play a round in the current http session
 	@POST
 	@Path("rounds")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -63,18 +66,20 @@ public class GameRPSResources {
 		return Response.status(200).entity(round).build();
 
 	}
-	
+
+	// Call to delete all rounds in the current http session
 	@DELETE
 	@Path("rounds")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response resetRounds() {
-		
+
 		gameRounds.resetRounds();
 
 		return Response.status(200).build();
 
 	}
 
+	// Call to get all rounds in the current http session
 	@GET
 	@Path("rounds")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -84,6 +89,7 @@ public class GameRPSResources {
 
 	}
 
+	// Call to get the statistic in this server (singleton)
 	@GET
 	@Path("stats")
 	@Produces(MediaType.APPLICATION_JSON)
