@@ -12,7 +12,6 @@ import java.util.Map;
 
 import org.glassfish.grizzly.http.server.Session;
 import org.glassfish.jersey.internal.inject.AbstractBinder;
-import org.glassfish.jersey.moxy.json.MoxyJsonConfig;
 import org.glassfish.jersey.process.internal.RequestScoped;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
@@ -43,7 +42,6 @@ import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.Application;
 import jakarta.ws.rs.core.Cookie;
 import jakarta.ws.rs.core.Response;
-import jakarta.ws.rs.ext.ContextResolver;
 
 public class StepDefinitions {
 
@@ -72,7 +70,6 @@ public class StepDefinitions {
 
 			ResourceConfig rc = new ResourceConfig();
 
-			rc.register(createMoxyJsonResolver());
 			rc.register(GameRPSRoundsResource.class);
 			rc.register(GameRPSStatsResource.class);
 
@@ -94,15 +91,6 @@ public class StepDefinitions {
 			});
 
 			return rc;
-		}
-
-		// Add JSON support to Jersey
-		public ContextResolver<MoxyJsonConfig> createMoxyJsonResolver() {
-			final MoxyJsonConfig moxyJsonConfig = new MoxyJsonConfig();
-			Map<String, String> namespacePrefixMapper = new HashMap<String, String>(1);
-			namespacePrefixMapper.put("http://www.w3.org/2001/XMLSchema-instance", "xsi");
-			moxyJsonConfig.setNamespacePrefixMapper(namespacePrefixMapper).setNamespaceSeparator(':');
-			return moxyJsonConfig.resolver();
 		}
 
 	}

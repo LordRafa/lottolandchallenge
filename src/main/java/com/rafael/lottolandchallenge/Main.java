@@ -2,15 +2,12 @@ package com.rafael.lottolandchallenge;
 
 import java.io.IOException;
 import java.net.URI;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.glassfish.grizzly.http.server.CLStaticHttpHandler;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.grizzly.http.server.Session;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.internal.inject.AbstractBinder;
-import org.glassfish.jersey.moxy.json.MoxyJsonConfig;
 import org.glassfish.jersey.process.internal.RequestScoped;
 import org.glassfish.jersey.server.ResourceConfig;
 
@@ -27,7 +24,6 @@ import com.rafael.lottolandchallenge.ws.GameRPSRoundsResource;
 import com.rafael.lottolandchallenge.ws.GameRPSStatsResource;
 
 import jakarta.inject.Singleton;
-import jakarta.ws.rs.ext.ContextResolver;
 
 /**
  * Main class.
@@ -50,7 +46,6 @@ public class Main {
 		// in com.rafael.lottolandchallenge package
 		final ResourceConfig rc = new ResourceConfig();
 
-		rc.register(createMoxyJsonResolver());
 		rc.register(GameRPSRoundsResource.class);
 		rc.register(GameRPSStatsResource.class);
 
@@ -88,15 +83,6 @@ public class Main {
 		server.getServerConfiguration().addHttpHandler(clStaticHttpHandler, "/");
 
 		return server;
-	}
-
-	// Add JSON support to Jersey
-	public static ContextResolver<MoxyJsonConfig> createMoxyJsonResolver() {
-		final MoxyJsonConfig moxyJsonConfig = new MoxyJsonConfig();
-		Map<String, String> namespacePrefixMapper = new HashMap<String, String>(1);
-		namespacePrefixMapper.put("http://www.w3.org/2001/XMLSchema-instance", "xsi");
-		moxyJsonConfig.setNamespacePrefixMapper(namespacePrefixMapper).setNamespaceSeparator(':');
-		return moxyJsonConfig.resolver();
 	}
 
 	public static void main(String[] args) throws IOException, InterruptedException {
