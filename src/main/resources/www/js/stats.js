@@ -10,20 +10,20 @@ $(document).ready(function() {
 			for (let key in gameStats.playerWins) {
 				appBody.append(
 					'<div class="row">' +
-					'<div class="col">Total ' + key + ' Wins:' + gameStats.playerWins[key] + '</div>' +
+					'<div class="col">Total ' + key + ' Wins: ' + gameStats.playerWins[key] + '</div>' +
 					'</div>'
 				);
 			}
 
 			appBody.append(
 				'<div class="row">' +
-				'<div class="col">Total Draws:' + gameStats.totalDraws + '</div>' +
+				'<div class="col">Total Draws: ' + gameStats.totalDraws + '</div>' +
 				'</div>'
 			);
 
 			appBody.append(
 				'<div class="row">' +
-				'<div class="col">Total Games:' + gameStats.totalGames + '</div>' +
+				'<div class="col">Total Games: ' + gameStats.totalGames + '</div>' +
 				'</div>'
 			);
 
