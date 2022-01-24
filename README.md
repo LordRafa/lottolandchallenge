@@ -25,7 +25,7 @@ the rest api and present the information.
 
 The unit testing was implemented with JUnit. For the integration testing Cucumber/JUnit Was used.
 
-Also I am using Github actions, Docker Hub and Docker on a lightsail instance create a CI/CD flow.
+Also I am using Github actions, Docker Hub and Docker on a Lightsail instance create a CI/CD flow.
 
 The project is avaiable at:
 https://lottolandchallenge.rawapro.com/
