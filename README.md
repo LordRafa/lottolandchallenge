@@ -30,5 +30,5 @@ The unit testing was implemented with JUnit. For the integration testing Cucumbe
 Run the following cmd on the root directory to run the testing and execute the app
 
 ```bash
-mvn clean test install exec:java
+mvn clean test exec:java
 ```
