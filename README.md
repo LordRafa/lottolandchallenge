@@ -28,7 +28,7 @@ The unit testing was implemented with JUnit. For the integration testing Cucumbe
 Also I am using Github actions, Docker Hub and Docker on a Lightsail instance create a CI/CD flow.
 
 The project is avaiable at:
-https://lottolandchallenge.rawapro.com
+https://lottolandchallenge.rawapro.com/
 
 # How to run the proyect
 
