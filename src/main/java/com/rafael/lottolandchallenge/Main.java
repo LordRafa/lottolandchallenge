@@ -97,12 +97,22 @@ public class Main {
 		return moxyJsonConfig.resolver();
 	}
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, InterruptedException {
 		final HttpServer server = startServer();
+
+		// register shutdown hook
+		Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+			@Override
+			public void run() {
+				System.out.println("Stopping server..");
+				server.shutdown();
+			}
+		}, "shutdownHook"));
+
 		System.out.println(String.format("Jersey app started with endpoints available at %s%n"
 				+ "the user interface is avaiable at %s%n" + "Hit Ctrl-C to stop it...", BASE_URI_REST, BASE_URI));
-		System.in.read();
-		server.shutdown();
+		Thread.currentThread().join();
+
 	}
 
 }
