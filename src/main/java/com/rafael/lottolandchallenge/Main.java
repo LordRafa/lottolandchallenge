@@ -23,7 +23,8 @@ import com.rafael.lottolandchallenge.beans.state.GameRoundsState;
 import com.rafael.lottolandchallenge.beans.state.GameRoundsStateImp;
 import com.rafael.lottolandchallenge.beans.state.GameStatsState;
 import com.rafael.lottolandchallenge.beans.state.GameStatsStateImp;
-import com.rafael.lottolandchallenge.ws.GameRPSResources;
+import com.rafael.lottolandchallenge.ws.GameRPSRoundsResource;
+import com.rafael.lottolandchallenge.ws.GameRPSStatsResource;
 
 import jakarta.inject.Singleton;
 import jakarta.ws.rs.ext.ContextResolver;
@@ -50,7 +51,8 @@ public class Main {
 		final ResourceConfig rc = new ResourceConfig();
 
 		rc.register(createMoxyJsonResolver());
-		rc.register(GameRPSResources.class);
+		rc.register(GameRPSRoundsResource.class);
+		rc.register(GameRPSStatsResource.class);
 
 		rc.register(new AbstractBinder() {
 			@Override

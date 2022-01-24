@@ -28,7 +28,8 @@ import com.rafael.lottolandchallenge.beans.state.GameRoundsState;
 import com.rafael.lottolandchallenge.beans.state.GameRoundsStateImp;
 import com.rafael.lottolandchallenge.beans.state.GameStatsState;
 import com.rafael.lottolandchallenge.beans.state.GameStatsStateImp;
-import com.rafael.lottolandchallenge.ws.GameRPSResources;
+import com.rafael.lottolandchallenge.ws.GameRPSRoundsResource;
+import com.rafael.lottolandchallenge.ws.GameRPSStatsResource;
 import com.rafael.lottolandchallenge.ws.PlayersListMsg;
 
 import io.cucumber.java.After;
@@ -72,7 +73,8 @@ public class StepDefinitions {
 			ResourceConfig rc = new ResourceConfig();
 
 			rc.register(createMoxyJsonResolver());
-			rc.register(GameRPSResources.class);
+			rc.register(GameRPSRoundsResource.class);
+			rc.register(GameRPSStatsResource.class);
 
 			rc.register(new AbstractBinder() {
 				@Override
@@ -172,7 +174,7 @@ public class StepDefinitions {
 
 	}
 
-	@Then("I get a status code {int} for each reponse from GameRPSResources service")
+	@Then("I get a status code {int} for each reponse")
 	public void then_I_get_a_status_code_from_GameRPSResources(int code) {
 		for (Response res : responses.values()) {
 			assertEquals(code, res.getStatus());

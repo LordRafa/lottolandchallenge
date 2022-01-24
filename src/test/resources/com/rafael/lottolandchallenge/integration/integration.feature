@@ -8,7 +8,7 @@ Feature: Players service integration test
     When I send a "POST" to "play a Round"
     And I send a "GET" to "get the rounds"
     And I send a "GET" to "get the stats"
-    Then I get a status code 200 for each reponse from GameRPSResources service
+    Then I get a status code 200 for each reponse
     And I get valid round with the "<HandP1>", the "<HandP2>" and the "<Winner>"
     And I get a list of rounds with one round with data: "<HandP1>", the "<HandP2>" and the "<Winner>"
     And I get valid stats for "<WinnerName>"
@@ -30,7 +30,7 @@ Feature: Players service integration test
   Scenario Outline: Play a round with invalid players
     Given I have two players: "<Player1>" and "<Player2>"
     When I send a "POST" to "play a Round"
-    Then I get a status code 404 for each reponse from GameRPSResources service
+    Then I get a status code 404 for each reponse
     
     Examples: 
       | Player1     | Player2     |
@@ -42,7 +42,7 @@ Feature: Players service integration test
   Scenario: Try to play with the wrong number of players
     Given I have only one players
     When I send a "POST" to "play a Round"
-    Then I get a status code 404 for each reponse from GameRPSResources service
+    Then I get a status code 404 for each reponse
     
 	@playersInfo
   Scenario: Play a round and after reset the played rounds 
@@ -51,7 +51,7 @@ Feature: Players service integration test
     And I send a "DELETE" to "reset the rounds"
     And I send a "GET" to "get the rounds"
     And I send a "GET" to "get the stats"
-    Then I get a status code 200 for each reponse from GameRPSResources service
+    Then I get a status code 200 for each reponse
     And I get valid round with the "ROCK", the "SCISSORS" and the "1"
     And I get a list of rounds with no data
     And I get valid stats for "TheRock"

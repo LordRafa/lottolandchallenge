@@ -22,15 +22,15 @@ import jakarta.inject.Inject;
 // This allows to keep a independent persistent
 // storage per each session.
 //
-// The only component affected by this class is GameRPSResources
+// The only component affected by this class is GameRPSRoundsResource
 @jakarta.ws.rs.ext.Provider
 public class PerSessionComponentProvider implements ComponentProvider {
 
 	private ServiceLocator locator;
 
-	static class PerSessionFactory implements Factory<GameRPSResources> {
+	static class PerSessionFactory implements Factory<GameRPSRoundsResource> {
 
-		static ConcurrentHashMap<String, GameRPSResources> perSessionMap = new ConcurrentHashMap<String, GameRPSResources>();
+		static ConcurrentHashMap<String, GameRPSRoundsResource> perSessionMap = new ConcurrentHashMap<String, GameRPSRoundsResource>();
 
 		private final Session session;
 		private final ServiceLocator locator;
@@ -44,10 +44,10 @@ public class PerSessionComponentProvider implements ComponentProvider {
 
 		@Override
 		@PerLookup
-		public GameRPSResources provide() {
+		public GameRPSRoundsResource provide() {
 
 			if (session.isNew()) {
-				GameRPSResources newInstance = createNewGameRPSResources();
+				GameRPSRoundsResource newInstance = createNewGameRPSResources();
 				perSessionMap.put(session.getIdInternal(), newInstance);
 
 				return newInstance;
@@ -57,11 +57,11 @@ public class PerSessionComponentProvider implements ComponentProvider {
 		}
 
 		@Override
-		public void dispose(GameRPSResources r) {
+		public void dispose(GameRPSRoundsResource r) {
 		}
 
-		private GameRPSResources createNewGameRPSResources() {
-			final GameRPSResources GameRPSResources = new GameRPSResources();
+		private GameRPSRoundsResource createNewGameRPSResources() {
+			final GameRPSRoundsResource GameRPSResources = new GameRPSRoundsResource();
 			locator.inject(GameRPSResources);
 			return GameRPSResources;
 		}
@@ -74,14 +74,14 @@ public class PerSessionComponentProvider implements ComponentProvider {
 
 	@Override
 	public boolean bind(Class<?> component, Set<Class<?>> providerContracts) {
-		if (component == GameRPSResources.class) {
+		if (component == GameRPSRoundsResource.class) {
 
 			final DynamicConfigurationService dynamicConfigService = locator
 					.getService(DynamicConfigurationService.class);
 			final DynamicConfiguration dynamicConfiguration = dynamicConfigService.createDynamicConfiguration();
 
 			BindingBuilderFactory.addBinding(
-					BindingBuilderFactory.newFactoryBinder(PerSessionFactory.class).to(GameRPSResources.class),
+					BindingBuilderFactory.newFactoryBinder(PerSessionFactory.class).to(GameRPSRoundsResource.class),
 					dynamicConfiguration);
 
 			dynamicConfiguration.commit();
