@@ -38,8 +38,8 @@ jobs:
       run: docker build -t lottolandchallenge .
     - name: Tags
       run: |
-        docker tag back ${{ secrets.DOCKER_HUB_USER }}/lottolandchallenge:${{ github.sha }}
-        docker tag back ${{ secrets.DOCKER_HUB_USER }}/lottolandchallenge:latest
+        docker tag lottolandchallenge ${{ secrets.DOCKER_HUB_USER }}/lottolandchallenge:${{ github.sha }}
+        docker tag lottolandchallenge ${{ secrets.DOCKER_HUB_USER }}/lottolandchallenge:latest
     - name: Push
       run: |
         docker push ${{ secrets.DOCKER_HUB_USER }}/lottolandchallenge:${{ github.sha }}
