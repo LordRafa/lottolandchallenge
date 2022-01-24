@@ -35,7 +35,7 @@ import jakarta.ws.rs.ext.ContextResolver;
 public class Main {
 
 	// Base URI the Grizzly REST server will listen on
-	public static final String BASE_URI = "http://localhost:8080";
+	public static final String BASE_URI = "http://0.0.0.0:8080";
 	public static final String BASE_URI_REST = BASE_URI + "/rest";
 
 	/**
@@ -109,8 +109,8 @@ public class Main {
 			}
 		}, "shutdownHook"));
 
-		System.out.println(String.format("Jersey app started with endpoints available at %s%n"
-				+ "the user interface is avaiable at %s%n" + "Hit Ctrl-C to stop it...", BASE_URI_REST, BASE_URI));
+		System.out.println(String.format("Jersey app started with endpoints available at http://localhost:8080/rest%n"
+				+ "the user interface is avaiable at http://localhost:8080/%n" + "Hit Ctrl-C to stop it..."));
 		Thread.currentThread().join();
 
 	}
