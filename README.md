@@ -23,7 +23,12 @@ On the other hand the stats are stored in memory in a singleton object accesible
 The user interface consist in two html files, that uses bootstrap and jQuery to communicate with
 the rest api and present the information.
 
-The unit testing was implemented with JUnit. For the integration testing Cucumber/JUnit Was used
+The unit testing was implemented with JUnit. For the integration testing Cucumber/JUnit Was used.
+
+Also I am using Github actions, Docker Hub and Docker on a lightsail instance create a CI/CD flow.
+
+The project is avaiable at:
+https://lottolandchallenge.rawapro.com/
 
 # How to run the proyect
 
